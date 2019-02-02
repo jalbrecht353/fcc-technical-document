@@ -5,109 +5,268 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FCC Technical Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/techdoc.css"/>
 </head>
 <body>
-    <nav id="navbar">
-        <header>
+    
+    <header id="main-header">
+        <div class="center">
             <h1>JavaScript Documentation</h1>
-        </header>
-        <ul>
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#grammar_and_types">Grammar and Types</a></li>
-            <li><a href="#loops_and_iterations">Loops and Iteration</a></li>
-            <li><a href="#functions">Functions</a></li>
-            <li><a href="#expressions_and_operators">Expressions and Operators</a></li>
-            <li><a href="#numbers_and_dates">Numbers and Dates</a></li>
-            <li><a href="#text_formatting">Text Formatting</a></li>
-            <li><a href="#regular_expressions">Regular Expressions</a></li>
+        </div>
+    </header>
+    <main id="main-doc" class="center">
+        <nav id="navbar">
+            <div id="menu">
+                <header>
+                    <h2>Getting Started</h2>
+                </header>
+                <ul>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#grammar_and_types">Grammar and Types</a></li>
+                    <li><a href="#loops_and_iteration">Loops and Iteration</a></li>
+                    <li><a href="#functions">Functions</a></li>
+                    <li><a href="#expressions_and_operators">Expressions and Operators</a></li>
+                    <li><a href="#numbers_and_dates">Numbers and Dates</a></li>
+                    <li><a href="#text_formatting">Text Formatting</a></li>
+                    <li><a href="#regular_expressions">Regular Expressions</a></li>
+                    <li><a href="#reference">Reference</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="content">
+            <section id="introduction" class="main-section">
+                <hr>
+                <header>Introduction</header>
+                <p>JavaScript is a cross-platform, object-oriented scripting language used to make webpages interactive (e.g. having complex animations, clickable buttons, popup menus, etc.).  There are also more advanced server side versions of JavaScript such as Node.Js which allow you to add more functionality to a website than simply downloading files (such as realtime collaboration between multiple computers). Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.</p>
+                <p>JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:</p>
+                <ul>
+                    <li>Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.</li>
+                    <li>Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.</li>
+                </ul>
+                <p>This means that in the browser, JavaScript can change the way the webpage (DOM) looks. And, likewise, Node.js JavaScript on the server can respond to custom requests from code written in the browser.</p>
+                <p>JavaScript and Java are similar in some ways but fundamentally different in some others. The JavaScript language resembles Java but does not have Java's static typing and strong type checking. JavaScript follows most Java expression syntax, naming conventions and basic control-flow constructs which was the reason why it was renamed from LiveScript to JavaScript.</p>
+                <p>In contrast to Java's compile-time system of classes built by declarations, JavaScript supports a runtime system based on a small number of data types representing numeric, Boolean, and string values. JavaScript has a prototype-based object model instead of the more common class-based object model. The prototype-based model provides dynamic inheritance; that is, what is inherited can vary for individual objects. JavaScript also supports functions without any special declarative requirements. Functions can be properties of objects, executing as loosely typed methods.</p>
+            </section>
 
-        </ul>
-    </nav>
-    <main id="main-doc">
-        <section id="introduction" class="main-section">
-            <header>Introduction</header>
-            <p>JavaScript is a cross-platform, object-oriented scripting language used to make webpages interactive (e.g. having complex animations, clickable buttons, popup menus, etc.).  There are also more advanced server side versions of JavaScript such as Node.Js which allow you to add more functionality to a website than simply downloading files (such as realtime collaboration between multiple computers). Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.</p>
-            <p>JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:</p>
-            <ul>
-                <li>Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.</li>
-                <li>Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.</li>
-            </ul>
-            <p>This means that in the browser, JavaScript can change the way the webpage (DOM) looks. And, likewise, Node.js JavaScript on the server can respond to custom requests from code written in the browser.</p>
-        </section>
+            <hr>
+            <section id="grammar_and_types" class="main-section">
+                <header>Grammar and Types</header>
+                <p>JavaScript borrows most of its syntax from Java, but is also influenced by Awk, Perl and Python. JavaScript is <strong>case-sensitive</strong> and uses the <strong>Unicode</strong> character set. For example, the word Früh (which means "early" in German) could be used as a variable name.</p>
+                <pre>
+                    <code>
+                    var Früh = "foobar";
+                    </code>
+                </pre>
+                <p>But, the variable früh is not the same as Früh because JavaScript is case sensitive. In JavaScript, instructions are called statements and are separated by semicolons (;).</p>
+                <p>A semicolon is not necessary after a statement if it is written on its own line. But if more than one statement on a line is desired, then they must be separated by semicolons. ECMAScript also has rules for automatic insertion of semicolons (ASI) to end statements. (For more information, see the detailed reference about JavaScript's lexical grammar.) It is considered best practice, however, to always write a semicolon after a statement, even when it is not strictly needed. This practice reduces the chances of bugs getting into the code.</p>
+                <p>The source text of JavaScript script gets scanned from left to right and is converted into a sequence of input elements which are tokens, control characters, line terminators, comments, or whitespace. Spaces, tabs, and newline characters are considered whitespace.</p>
+                <p>The syntax of comments is the same as in C++ and in many other languages:</p>
+                <pre>
+                    <code>
+                        // a one line comment
 
-        <section id="grammar_and_types" class="main-section">
-            <header>Grammar and Types</header>
-            <p>JavaScript borrows most of its syntax from Java, but is also influenced by Awk, Perl and Python. JavaScript is <strong>case-sensitive</strong> and uses the <strong>Unicode</strong> character set. For example, the word Früh (which means "early" in German) could be used as a variable name.</p>
-            <code>
-                var Früh = "foobar";
-            </code>
-            <p>But, the variable früh is not the same as Früh because JavaScript is case sensitive. In JavaScript, instructions are called statements and are separated by semicolons (;).</p>
-            <p>A semicolon is not necessary after a statement if it is written on its own line. But if more than one statement on a line is desired, then they must be separated by semicolons. ECMAScript also has rules for automatic insertion of semicolons (ASI) to end statements. (For more information, see the detailed reference about JavaScript's lexical grammar.) It is considered best practice, however, to always write a semicolon after a statement, even when it is not strictly needed. This practice reduces the chances of bugs getting into the code.</p>
-        </section>
+                        /* this is a longer, 
+                            * multi-line comment
+                            */
+                            
+                        /* You can't, however, /* nest comments */ SyntaxError */                            
+                    </code>
+                </pre>
+                <p>Comments behave like whitespace and are discarded during script execution.</p>
+            </section>
 
-        <section id="loops_and_iteration" class="main-section">
-            <header>Loops and Iteration</header>
-            <p>Loops offer a quick and easy way to do something repeatedly. This chapter of the JavaScript Guide introduces the different iteration statements available to JavaScript.</p>
-            <p>You can think of a loop as a computerized version of the game where you tell someone to take X steps in one direction then Y steps in another; for example, the idea "Go five steps to the east" could be expressed this way as a loop:</p>
-            <code>
-                var step;
-                for (step = 0; step < 5; step++) {
-                // Runs 5 times, with values of step 0 through 4.
-                console.log('Walking east one step');}
-            </code>
-            <p>There are many different kinds of loops, but they all essentially do the same thing: they repeat an action some number of times (and it's actually possible that number could be zero). The various loop mechanisms offer different ways to determine the start and end points of the loop. There are various situations that are more easily served by one type of loop over the others.</p>
-        </section>
+            <hr>
+            <section id="loops_and_iteration" class="main-section">
+                <header>Loops and Iteration</header>
+                <p>Loops offer a quick and easy way to do something repeatedly. This chapter of the JavaScript Guide introduces the different iteration statements available to JavaScript.</p>
+                <p>You can think of a loop as a computerized version of the game where you tell someone to take X steps in one direction then Y steps in another; for example, the idea "Go five steps to the east" could be expressed this way as a loop:</p>
+                <pre>
+                    <code>
+                        var step;
+                        for (step = 0; step  5; step++) {
+                        // Runs 5 times, with values of step 0 through 4.
+                        console.log('Walking east one step');}
+                    </code>
+                </pre>
+                <p>There are many different kinds of loops, but they all essentially do the same thing: they repeat an action some number of times (and it's actually possible that number could be zero). The various loop mechanisms offer different ways to determine the start and end points of the loop. There are various situations that are more easily served by one type of loop over the others.</p>
+                <p>The statements for loops provided in JavaScript are:</p>
+                <ul>
+                    <li>for statement</li>
+                    <li>do...while statement</li>
+                    <li>while statement</li>
+                    <li>labeled statement</li>
+                    <li>break statement</li>
+                    <li>continue statement</li>
+                    <li>for...in statement</li>
+                    <li>for...of statement</li>
+                </ul>
+            </section>
 
-        <section id="functions" class="main-section">
-            <header>Functions</header>
-            <p>A function definition (also called a function declaration, or function statement) consists of the function keyword, followed by:</p>
-            <ul>
-                <li>The name of the function.</li>
-                <li>A list of parameters to the function, enclosed in parentheses and separated by commas.</li>
-                <li>The JavaScript statements that define the function, enclosed in curly brackets, { }.</li>
-            </ul>
-            <p>The JavaScript statements that define the function, enclosed in curly brackets, { }.</p>
-            <code>
-                function square(number) {
-                    return number * number;
-                }  
-            </code>
-        </section>
+            <hr>
+            <section id="functions" class="main-section">
+                <header>Functions</header>
+                <p>A function definition (also called a function declaration, or function statement) consists of the function keyword, followed by:</p>
+                <ul>
+                    <li>The name of the function.</li>
+                    <li>A list of parameters to the function, enclosed in parentheses and separated by commas.</li>
+                    <li>The JavaScript statements that define the function, enclosed in curly brackets, { }.</li>
+                </ul>
+                <p>The JavaScript statements that define the function, enclosed in curly brackets, { }.</p>
+                <pre>
+                    <code>
+                        function square(number) {
+                            return number * number;
+                        }  
+                    </code>
+                </pre>
+                <p>The function square takes one parameter, called number. The function consists of one statement that says to return the parameter of the function (that is, number) multiplied by itself. The statement return specifies the value returned by the function:</p>
+                <pre>
+                    <code>
+                        return number * number;
+                    </code>
+                </pre>
+                <p>Primitive parameters (such as a number) are passed to functions <strong>by value</strong>; the value is passed to the function, but if the function changes the value of the parameter, <strong>this change is not reflected globally or in the calling function.</strong></p>
+                <p>If you pass an object (i.e. a non-primitive value, such as Array or a user-defined object) as a parameter and the function changes the object's properties, that change is visible outside the function, as shown in the following example:</p>
+                <pre>
+                    <code>
+                        function myFunc(theObject) {
+                            theObject.make = 'Toyota';
+                            }
+                            
+                            var mycar = {make: 'Honda', model: 'Accord', year: 1998};
+                            var x, y;
+                            
+                            x = mycar.make; // x gets the value "Honda"
+                            
+                            myFunc(mycar);
+                            y = mycar.make; // y gets the value "Toyota"
+                                            // (the make property was changed by the function)
+                    </code>
+                </pre>
+            </section>
 
-        <section id="expressions_and_operators" class="main-section">
-            <header>Expressions and Operators</header>
-            <p>JavaScript has the following types of operators. This section describes the operators and contains information about operator precedence.</p>
-            <ul>
-                <li>Assignment operators</li>
-                <li>Comparison operators</li>
-                <li>Arithmetic operators</li>
-                <li>Bitwise operators</li>
-                <li>Logical operators</li>
-                <li>String operators</li>
-                <li>Conditional (ternary) operator</li>
-                <li>Comma operator</li>
-                <li>Unary operators</li>
-                <li>Relational operators</li>
-            </ul>
-            <p>JavaScript has both binary and unary operators, and one special ternary operator, the conditional operator. A binary operator requires two operands, one before the operator and one after the operator:</p>
-        </section>
+            <hr>
+            <section id="expressions_and_operators" class="main-section">
+                <header>Expressions and Operators</header>
+                <p>JavaScript has the following types of operators. This section describes the operators and contains information about operator precedence.</p>
+                <ul>
+                    <li>Assignment operators</li>
+                    <li>Comparison operators</li>
+                    <li>Arithmetic operators</li>
+                    <li>Bitwise operators</li>
+                    <li>Logical operators</li>
+                    <li>String operators</li>
+                    <li>Conditional (ternary) operator</li>
+                    <li>Comma operator</li>
+                    <li>Unary operators</li>
+                    <li>Relational operators</li>
+                </ul>
+                <p>JavaScript has both binary and unary operators, and one special ternary operator, the conditional operator. A binary operator requires two operands, one before the operator and one after the operator:</p>
+                <pre>
+                    <code>
+                        operand1 operator operand2
+                    </code>
+                </pre>
+                <p>For example, 3+4 or x*y.</p>
+                <p>A unary operator requires a single operand, either before or after the operator:</p>
+                <pre>
+                    <code>
+                        operator operand
+                    </code>
+                </pre>
+                <p>An assignment operator assigns a value to its left operand based on the value of its right operand. The simple assignment operator is equal (=), which assigns the value of its right operand to its left operand. That is, x = y assigns the value of y to x.</p>
+            </section>
 
-        <section id="numbers_and_dates" class="main-section">
-            <header>Numbers and Dates</header>
-            <p>In JavaScript, all numbers are implemented in double-precision 64-bit binary format IEEE 754 (i.e. a number between -(263 -1) and 263 -1). In addition to being able to represent floating-point numbers, the number type has three symbolic values: +Infinity, -Infinity, and NaN (not-a-number). See also JavaScript data types and structures for context with other primitive types in JavaScript.</p>
-        </section>
+            <hr>
+            <section id="numbers_and_dates" class="main-section">
+                <header>Numbers and Dates</header>
+                <p>In JavaScript, all numbers are implemented in double-precision 64-bit binary format IEEE 754 (i.e. a number between -(263 -1) and 263 -1). In addition to being able to represent floating-point numbers, the number type has three symbolic values: +Infinity, -Infinity, and NaN (not-a-number). See also JavaScript data types and structures for context with other primitive types in JavaScript.</p>
+                <p>You can use four types of number literals: decimal, binary, octal, and hexadecimal.</p>
+                <pre>
+                    <code>
+                        1234567890
+                        42
+                        
+                        // Caution when using leading zeros:
+                        
+                        0888 // 888 parsed as decimal
+                        0777 // parsed as octal in non-strict mode (511 in decimal)
+                    </code>
+                </pre>
+                <p>Note that decimal literals can start with a zero (0) followed by another decimal digit, but if every digit after the leading 0 is smaller than 8, the number gets parsed as an octal number.</p>
+                <p>Binary number syntax uses a leading zero followed by a lowercase or uppercase Latin letter "B" (0b or 0B). If the digits after the 0b are not 0 or 1, the following SyntaxError is thrown: "Missing binary digits after 0b".</p>
+                <pre>
+                    <code>
+                        var FLT_SIGNBIT  = 0b10000000000000000000000000000000; // 2147483648
+                        var FLT_EXPONENT = 0b01111111100000000000000000000000; // 2139095040
+                        var FLT_MANTISSA = 0B00000000011111111111111111111111; // 8388607
+                    </code>
+                </pre>
+                <p>Octal number syntax uses a leading zero. If the digits after the 0 are outside the range 0 through 7, the number will be interpreted as a decimal number.</p>
+                <pre>
+                    <code>
+                        var n = 0755; // 493
+                        var m = 0644; // 420
+                    </code>
+                </pre>
+            </section>
 
-        <section id="text_formatting" class="main-section">
-            <header>Text Formatting</header>
-            <p>JavaScript's String type is used to represent textual data. It is a set of "elements" of 16-bit unsigned integer values  (UTF-16 code units). Each element in the String occupies a position in the String. The first element is at index 0, the next at index 1, and so on. The length of a String is the number of elements in it. You can create strings using string literals or string objects.</p>
-        </section>
+            <hr>
+            <section id="text_formatting" class="main-section">
+                <header>Text Formatting</header>
+                <p>JavaScript's String type is used to represent textual data. It is a set of "elements" of 16-bit unsigned integer values  (UTF-16 code units). Each element in the String occupies a position in the String. The first element is at index 0, the next at index 1, and so on. The length of a String is the number of elements in it. You can create strings using string literals or string objects.</p>
+                <p>You can create simple strings using either single or double quotes:</p>
+                <pre>
+                    <code>
+                        'foo'
+                        "bar"
+                    </code>
+                </pre>
+                <p>The number after \x is interpreted as a hexadecimal number.</p>
+                <pre>
+                    <code>
+                        '\xA9' // "©"
+                    </code>
+                </pre>
+                <p>The Unicode escape sequences require at least four hexadecimal digits following \u.</p>
+                <pre>
+                    <code>
+                        '\u00A9' // "©"
+                    </code>
+                </pre>
+                <p>New in ECMAScript 2015. With Unicode code point escapes, any character can be escaped using hexadecimal numbers so that it is possible to use Unicode code points up to 0x10FFFF. With simple Unicode escapes it is often necessary to write the surrogate halves separately to achieve the same result.</p>
+            </section>
 
-        <section id="regular_expressions" class="main-section">
-            <header>Regular Expressions</header>
-            <p>You construct a regular expression in one of two ways:</p>
-            <p>Using a regular expression literal, which consists of a pattern enclosed between slashes, as follows:</p>
-            <code>var re = /ab+c/;</code>
-        </section>
+            <hr>
+            <section id="regular_expressions" class="main-section">
+                <header>Regular Expressions</header>
+                <p>You construct a regular expression in one of two ways:</p>
+                <p>Using a regular expression literal, which consists of a pattern enclosed between slashes, as follows:</p>
+                <pre>
+                    <code>
+                        var re = /ab+c/;
+                    </code>
+                </pre>
+                <p>Regular expression literals provide compilation of the regular expression when the script is loaded. If the regular expression remains constant, using this can improve performance.</p>
+                <p>Or calling the constructor function of the RegExp object, as follows:</p>
+                <pre>
+                    <code>
+                        var re = new RegExp('ab+c');
+                    </code>
+                </pre>
+                <p>Using the constructor function provides runtime compilation of the regular expression. Use the constructor function when you know the regular expression pattern will be changing, or you don't know the pattern and are getting it from another source, such as user input.</p>
+                <p>A regular expression pattern is composed of simple characters, such as /abc/, or a combination of simple and special characters, such as /ab*c/ or /Chapter (\d+)\.\d*/. The last example includes parentheses which are used as a memory device. The match made with this part of the pattern is remembered for later use, as described in Using parenthesized substring matches.</p>
+                <p>Simple patterns are constructed of characters for which you want to find a direct match. For example, the pattern /abc/ matches character combinations in strings only when exactly the characters 'abc' occur together and in that order. Such a match would succeed in the strings "Hi, do you know your abc's?" and "The latest airplane designs evolved from slabcraft." In both cases the match is with the substring 'abc'. There is no match in the string 'Grab crab' because while it contains the substring 'ab c', it does not contain the exact substring 'abc'.</p>
+            </section>
+
+            <hr>
+            <section id="reference" class="main-section">
+                <header>Reference</header>
+                <p>All material is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction" target="_blank" alt="MDN Javascript Page">MDN</a></p>
+            </section>
+
+        </div>
     </main>
 </body>
 </html>
